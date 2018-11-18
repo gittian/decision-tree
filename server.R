@@ -233,12 +233,13 @@ shinyServer(function(input, output,session) {
     fit.rt1$frame$yval = as.numeric(rownames(fit.rt()$model$frame))
     
     # create attractive postcript plot of tree 
-    post(fit.rt1, 
-         # file = "tree2.ps", 
-         filename = "",   # will print to console
-         use.n = FALSE,
-         compress = TRUE,
-         title = title1) 
+    prp(fit.rt1,type=1,extra=1,under=TRUE,split.font=1)
+    # post(fit.rt1, 
+    #      # file = "tree2.ps", 
+    #      filename = "",   # will print to console
+    #      use.n = FALSE,
+    #      compress = TRUE,
+    #      title = title1) 
     
   })
   
@@ -247,12 +248,13 @@ shinyServer(function(input, output,session) {
     
     title1 = paste("Decision Tree for", input$yAttr)
     
-  post(fit.rt()$model, 
-       # file = "tree2.ps", 
-       filename = "",   # will print to console
-       use.n = TRUE,
-       compress = TRUE,
-       title = title1) 
+  prp(fit.rt()$model,type=1,extra=1,under=TRUE,split.font=1)
+  # post(fit.rt()$model, 
+  #      # file = "tree2.ps", 
+  #      filename = "",   # will print to console
+  #      use.n = TRUE,
+  #      compress = TRUE,
+  #      title = title1) 
   })
   
   
